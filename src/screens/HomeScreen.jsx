@@ -1,5 +1,7 @@
-import { message } from 'antd';
+
 import React, { useEffect, useState } from 'react'
+import { constants } from '../constants'
+import { Card, message, List, Spin } from 'antd';
 
 
 const HomeScreen = () => {
@@ -13,11 +15,12 @@ const HomeScreen = () => {
 
     const getAllPosts = async () => {
 
-        const API = '/Posts';
+        const api = '/posts';
 
         setisLoading(true)
         try {
-            await fetch(API).then((result) => result.json())
+            await fetch(constants.BASE_URL + api)
+                .then((result) => result.json())
                 .then(res => {
                     setPosts(res)
                     setisLoading(false);
@@ -32,8 +35,24 @@ const HomeScreen = () => {
 
     console.log(Posts);
 
+
+
     return (
-        <div></div>
+        <div>
+            <div className="container">
+                <div className="col-8 offset-2" >
+                    <Card>
+                        {
+                            isLoading ? <Spin /> : Posts.length > 0 ?
+                                <List dataSource={Posts} renderItem={item} /> :
+                                <p>Posts not Found </p>
+                        }
+                        <List />
+                    </Card>
+                </div>
+
+            </div>
+        </div>
     )
 }
 
