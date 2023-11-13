@@ -45,9 +45,10 @@ const HomeScreen = () => {
                         {
                             isLoading ? (<Spin />
                             ) : Posts.length > 0 ? (
-                                <List dataSource={Posts} renderItem={(Item) => <List.Item key={Item.id}>
-                                    <List.Item.Meta title={Item.title} />
-                                </List.Item>} />
+                                <List pagination
+                                    dataSource={Posts} renderItem={(Item) => <List.Item key={Item.id}>
+                                        <List.Item.Meta title={Item.title} />
+                                    </List.Item>} />
                             ) : (
                                 <p>Posts not Found </p>
                             )
