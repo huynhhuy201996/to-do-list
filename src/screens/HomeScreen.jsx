@@ -43,16 +43,22 @@ const HomeScreen = () => {
                 <div className="col-8 offset-2" >
                     <Card>
                         {
-                            isLoading ? <Spin /> : Posts.length > 0 ?
-                                <List dataSource={Posts} renderItem={item} /> :
+                            isLoading ? (<Spin />
+                            ) : Posts.length > 0 ? (
+                                <List dataSource={Posts} renderItem={(Item) => <List.Item key={Item.id}>
+                                    <List.Item.Meta title={Item.title} />
+                                </List.Item>} />
+                            ) : (
                                 <p>Posts not Found </p>
+                            )
+
                         }
                         <List />
                     </Card>
                 </div>
 
             </div>
-        </div>
+        </div >
     )
 }
 
