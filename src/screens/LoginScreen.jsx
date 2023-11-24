@@ -3,6 +3,8 @@ import { Button, Card, Input } from 'antd';
 import { Lock, Sms } from 'iconsax-react';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import HomeScreen from './HomeScreen';
 
 const LoginScreen = () => {
     const [email, setEmail] = useState('');
@@ -45,17 +47,19 @@ const LoginScreen = () => {
                             size='large'
                         />
 
-                        <Button
-                            onClick={handleLogin}
-                            style={{ width: '100%', marginTop: 20 }}
-                            type='primary'
-                            size='large'>
-                            Login
-                        </Button>
+                        <Link to="/HomeScreen">
+                            <Button
+                                onClick={handleLogin}
+                                style={{ width: '100%', marginTop: 20 }}
+                                type='primary'
+                                size='large'>Login
+                            </Button>
+                        </Link>
+
                     </Card>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

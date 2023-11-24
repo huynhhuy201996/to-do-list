@@ -5,16 +5,15 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginScreen from "./screens/LoginScreen";
 import AudioScreens from "./components/AudioScreens";
 
+
 function App() {
   return (
     <>
       <BrowserRouter>
         <HeaderComponent />
         <Routes>
-          <Route path='/' element={<HomeScreen />} />
+          <Route path='/' element={<LoginScreen />} />
           <Route path='/Login' element={<LoginScreen />} />
-          <Route path='/AudioScreens' element={<AudioScreens />} />
-
         </Routes>
       </BrowserRouter>
     </>
