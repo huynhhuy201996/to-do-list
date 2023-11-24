@@ -12,8 +12,9 @@ function App() {
       <BrowserRouter>
         <HeaderComponent />
         <Routes>
-          <Route path='/' element={<LoginScreen />} />
+          <Route path='/' element={<HomeScreen />} />
           <Route path='/Login' element={<LoginScreen />} />
+          <Route path='/HomeScreen' element={<HomeScreen />} />
         </Routes>
       </BrowserRouter>
     </>
