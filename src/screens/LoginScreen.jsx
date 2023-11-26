@@ -1,5 +1,5 @@
 
-import { Button, Card, Input } from 'antd';
+import { Button, Card, Checkbox, Input } from 'antd';
 import { Lock, Sms } from 'iconsax-react';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -25,12 +25,15 @@ const LoginScreen = () => {
             <div className='container mt-4'>
                 <div className='col-6 offset-3'>
                     <Card>
-                        <div className='text-center'>
-                            <h1>LOGIN</h1>
+                        <div className='text-center mb-4'>
+                            <h1 style={{
+                                fontWeight: 'bold',
+                                color: '#676767',
+                            }}>LOGIN</h1>
                         </div>
 
                         <Input
-                            placeholder='email'
+                            placeholder='Email'
                             type='email-address'
                             allowClear
                             value={email}
@@ -46,15 +49,21 @@ const LoginScreen = () => {
                             prefix={<Lock size={20} color='#676767' />}
                             size='large'
                         />
+                        <div className="row p-3 " style={{ padding: 0, justifyContent: 'space-between' }}>
+                            <Checkbox>remember</Checkbox>
+                            <Link to='/forgot-password'>Forgot Password</Link>
+                        </div>
 
-                        <Link to="/HomeScreen">
-                            <Button
-                                onClick={handleLogin}
-                                style={{ width: '100%', marginTop: 20 }}
-                                type='primary'
-                                size='large'>Login
-                            </Button>
-                        </Link>
+                        <Button
+                            onClick={handleLogin}
+                            style={{
+                                width: '100%', marginTop: 10,
+                                fontWeight: 'bold'
+                            }}
+                            type='primary'
+                            size='large'>Login
+                        </Button>
+
 
                     </Card>
                 </div>

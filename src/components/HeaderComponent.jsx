@@ -1,13 +1,35 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { Backward } from 'iconsax-react'
+import { useNavigate, useRouters } from 'react-router-dom'
+import { Button } from 'antd'
 
 function HeaderComponent() {
+
+    const navigate = useNavigate()
+
+    const handlelogout = () => {
+
+        console.log(user);
+    };
+
+    const user = {
+
+    }
+
+
+
     return (
-        <div className='container-flucid bg-dark'>
+        <div className='container-fluid bg-dark p-2'>
             <div className="container">
-                <Backward size="32" color="#FF8A65" />
-                <div><Link to={'/Login'}>Login</Link ></div>
+                <div className="row">
+                    <div className="col text-right">
+                        <Button
+                            onClick={user.email ? handlelogout : () => navigate('login')}
+                            type='text'
+                            style={{ color: '#fafafa' }}>
+                            {user.email ? 'logout' : 'login'}
+                        </Button>
+                    </div>
+                </div>
             </div>
         </div>
 
