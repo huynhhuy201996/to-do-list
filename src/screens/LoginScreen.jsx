@@ -1,20 +1,27 @@
 
 import { Button, Card, Checkbox, Input } from 'antd';
 import { Lock, Sms } from 'iconsax-react';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import HomeScreen from './HomeScreen';
+import UserContext from '../store/userContext';
+
+
 
 const LoginScreen = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const navigate = useNavigate();
+    const userContext = useContext(UserContext);
 
     const handleLogin = () => {
         if (email && password) {
-            navigate('/HomeScreen');
+            userContext.setUser({
+                email,
+                password,
+            })
+            navigate('/');
         } else {
             alert('Type email and password!!!');
         }

@@ -6,6 +6,6 @@ const defaultVAlue = {
     displayName: '',
 };
 
-const Usercontext = createContext(defaultVAlue);
+const UserContext = createContext(defaultVAlue);
 
-expect default Usercontext;
+export default UserContext;

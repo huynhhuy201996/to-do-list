@@ -4,19 +4,28 @@ import HeaderComponent from "./components/HeaderComponent";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginScreen from "./screens/LoginScreen";
 import AudioScreens from "./components/AudioScreens";
+import { useState } from "react";
+import UserContext from "./store/userContext";
 
+
+const defaultVAlue = {
+
+};
 
 function App() {
+  const [user, setUser] = useState(defaultVAlue);
   return (
     <>
-      <BrowserRouter>
-        <HeaderComponent />
-        <Routes>
-          <Route path='/' element={<HomeScreen />} />
-          <Route path='/login' element={<LoginScreen />} />
+      <UserContext.Provider value={{ user, setUser }}>
+        <BrowserRouter>
+          <HeaderComponent />
+          <Routes>
+            <Route path='/' element={<HomeScreen />} />
+            <Route path='/login' element={<LoginScreen />} />
 
-        </Routes>
-      </BrowserRouter>
+          </Routes>
+        </BrowserRouter>
+      </UserContext.Provider>
     </>
   )
 }
