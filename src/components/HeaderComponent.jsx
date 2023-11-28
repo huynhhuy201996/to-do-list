@@ -38,10 +38,10 @@ function HeaderComponent() {
             </div>
         </div>
 
-    )
-}
+    );
+};
 
-export default HeaderComponent
+export default HeaderComponent;
 
 
 

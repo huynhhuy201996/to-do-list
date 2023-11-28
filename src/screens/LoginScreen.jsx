@@ -21,6 +21,7 @@ const LoginScreen = () => {
                 email,
                 password,
             })
+
             navigate('/');
         } else {
             alert('Type email and password!!!');
