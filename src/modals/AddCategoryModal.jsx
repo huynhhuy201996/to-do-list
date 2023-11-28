@@ -7,7 +7,19 @@ const AddCategoryModal = ({ isVisible, onClose }) => {
     const [form] = Form.useForm();
 
     const handleAddNewCategory = (values) => {
-        console.log(values);
+        if (values.name) {
+            const res = localStorage.getItem('categories');
+            const categories = res ? JSON.parse(res) : [];
+
+            const index = categories.findIndex(element => element.title === values.title);
+            if (index !== -1) {
+                alert('Author is existing')
+            } else {
+                categories.push(values)
+                localStorage.setItem('categories', JSON.stringify(categories));
+                handleCloseModal();
+            }
+        };
     }
 
     const handleCloseModal = () => {
@@ -19,13 +31,13 @@ const AddCategoryModal = ({ isVisible, onClose }) => {
         <Modal
             open={isVisible}
             onCancel={handleCloseModal}
-            onOK={() => form.submit()} title={'Add new Author'}>
+            onOk={() => form.submit()} title={'Add new Author'}>
             <Form form={form} onFinish={handleAddNewCategory} layout='vertical'>
                 <Form.Item name={'name'} label='name'>
                     <Input allowClear maxlength={100} />
                 </Form.Item>
                 <Form.Item name={'Description'} label='Description'>
-                    <Input.TexArea rows={5} allowClear maxlength={1500} />
+                    <Input.TextArea rows={5} allowClear maxlength={1500} />
                 </Form.Item>
             </Form>
         </Modal >

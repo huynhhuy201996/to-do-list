@@ -44,6 +44,7 @@ const LoginScreen = () => {
                             placeholder='Email'
                             type='email-address'
                             allowClear
+                            required
                             value={email}
                             onChange={(event) => setEmail(event.target.value)}
                             prefix={<Sms size={20} color='#676767' />}
@@ -52,6 +53,7 @@ const LoginScreen = () => {
                         <Input.Password
                             className='mt-3'
                             placeholder='Password'
+                            required
                             value={password}
                             onChange={(event) => setPassword(event.target.value)}
                             prefix={<Lock size={20} color='#676767' />}
