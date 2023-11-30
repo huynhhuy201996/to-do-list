@@ -17,11 +17,41 @@ const HomeScreen = () => {
     }, []);
 
     const handleGetAudios = () => {
+        /*
+             const api = `https://whisper-d1ec7-default-rtdb.asia-southeast1.firebasedatabase.app/chapters/-NSrJall4gfL8cPMzstS.json`
+    
+        try {
+            await fetch(api).then(result => result.json()).then(res => {
+                if (res && res.chaps) {
+
+                    const items = []
+
+                    res.chaps.forEach(item => {
+                        items.push({
+                            sound: item.audio,
+                            author: 'Author',
+                            category: 'Category',
+                            title: item.title
+                        })
+                    })
+
+                    console.log(items)
+
+                    setAudios(items)
+                }
+            })
+        } catch (error) {
+            console.log(error)
+        }
+        */
+
         const res = localStorage.getItem('audios')
 
         if (res) {
             setAudios(JSON.parse(res))
         }
+
+
     }
 
     // console.log(audios)

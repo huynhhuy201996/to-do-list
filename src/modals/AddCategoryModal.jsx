@@ -11,7 +11,7 @@ const AddCategoryModal = ({ isVisible, onClose }) => {
             const res = localStorage.getItem('categories');
             const categories = res ? JSON.parse(res) : [];
 
-            const index = categories.findIndex(element => element.title === values.title);
+            const index = categories.findIndex(element => element.name === values.name);
             if (index !== -1) {
                 alert('Author is existing')
             } else {

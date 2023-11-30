@@ -8,9 +8,13 @@ const PlayerControler = ({ audios }) => {
 
   const audioRef = useRef()
 
-  const onPlaying = {};
+  const onPlaying = (event) => {
+
+  };
+
+
   const toogleAudio = () => {
-    if (audioRef.current?.paused) {
+    if (!isPlaying) {
       audioRef.current?.play();
       setIsPlaying(true);
     } else {
@@ -20,6 +24,7 @@ const PlayerControler = ({ audios }) => {
   };
 
 
+  console.log(audios)
 
   return audios.length > 0 ? (
     <div>
@@ -44,17 +49,23 @@ const PlayerControler = ({ audios }) => {
             icon={<Play size={27} color='coral' />}
           />
           <Button
+            disabled={chapIndex === audios.length - 1}
             type='text'
+            onClick={() => setChapIndex(chapIndex + 1)}
             icon={<Next size={27} color='#676767' />}
           />
 
         </Space>
       </Card>
-      <audio controls ref={audioRef} onTimeUpdate={onPlaying} />
-      {
-        audios.map(item =>
-          <source src={item.sound} />)
-      }
+      <audio
+        controls
+        ref={audioRef}
+        autoPlay
+        onTimeUpdate={(event) => onPlaying(event)}>
+        {audios.map((item, index) => (
+          <source key={`audio${index}`} src={item.sound} />
+        ))}
+      </audio>
     </div>
   ) : (
     <></>

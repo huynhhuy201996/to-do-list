@@ -11,8 +11,12 @@ const AddAuthorModal = ({ isVisible, onClose }) => {
             const res = localStorage.getItem('authors');
             const authors = res ? JSON.parse(res) : [];
 
-            const index = authors.findIndex(element => element.title === values.title);
-            if (index !== -1) {
+
+
+            const index = authors.findIndex(element => element.name === values.name);
+
+
+            if (index >= 0) {
                 alert('Author is existing')
             } else {
                 authors.push(values)
