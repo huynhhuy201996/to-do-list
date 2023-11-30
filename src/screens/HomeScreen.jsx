@@ -24,6 +24,8 @@ const HomeScreen = () => {
         }
     }
 
+    // console.log(audios)
+
     return (
         <div className='container mt-4'>
             <div className="col-8 offset-2 ">
